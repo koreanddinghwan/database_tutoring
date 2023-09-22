@@ -1,0 +1,21 @@
+version: "3.8"
+
+# 백엔드 개발 환경 구축용 도커 컨테이너들
+services:
+  mysql:
+    image: mysql:8.0.33
+    container_name: preswot
+    environment:
+      TZ: Asia/Seoul
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: preswot
+      MYSQL_USER: preswot
+      MYSQL_PASSWORD: 1234
+    ports:
+      - "10001:3306"
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
